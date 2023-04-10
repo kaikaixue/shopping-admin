@@ -86,19 +86,32 @@
             </el-menu>
         </el-aside>
         <el-main style="padding: 0">
-            <el-header style="margin: 0;padding: 0;" height="80px">
-                <el-container style="background-color: blanchedalmond; margin:0;padding: 0; height: 80px;">
-                    <div style="margin: auto;margin-left:100px"><h1>欢迎您登录后台管理系统，管理员用户！</h1></div>
-                    <div><el-button type="primary" @click="logout">注销</el-button></div>
+            <el-header style="margin: 0; padding: 0" height="80px">
+                <el-container
+                    style="
+                        background-color: blanchedalmond;
+                        margin: 0;
+                        padding: 0;
+                        height: 80px;
+                    "
+                >
+                    <div style="margin: auto; margin-left: 100px">
+                        <h1>欢迎您登录后台管理系统，管理员用户！</h1>
+                    </div>
+                    <div>
+                        <el-button type="primary" @click="logout"
+                            >注销</el-button
+                        >
+                    </div>
                 </el-container>
             </el-header>
-            <router-view/>
+            <router-view />
         </el-main>
     </el-container>
 </template>
 
 <script>
-import store from '@/tools/Storage';
+import store from '@/tools/Storage'
 export default {
     name: 'Home',
     data() {
@@ -109,23 +122,29 @@ export default {
     methods: {
         logout() {
             store.commit('clearUserInfo')
-            this.$router.push({name: 'login'})
-        }
+            this.$router.push({ name: 'login' })
+        },
+
+        selectItem(key, keyPath) {
+            this.$router.push({
+                path: key,
+            })
+        },
     },
 }
 </script>
 
 <style scoped>
-    #container {
-        height: 100%;
-        width: 100%;
-        position: absolute;
-    }
+#container {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
 
-    #top {
-        background-color: #545c64;
-        margin-right: 1px;
-        text-align: center;
-        height: 60px;
-    }
+#top {
+    background-color: #545c64;
+    margin-right: 1px;
+    text-align: center;
+    height: 60px;
+}
 </style>

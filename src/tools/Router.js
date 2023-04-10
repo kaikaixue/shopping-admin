@@ -18,6 +18,21 @@ const router = createRouter({
                     path: 'order/:type',
                     component: () => import('@/components/order/Order.vue'),
                     name: 'order',
+                },
+                {
+                    path: 'goods/:type',
+                    component: () => import('@/components/goods/Goods.vue'),
+                    name: 'Goods'
+                },
+                {
+                    path: 'addGood/:type',
+                    component: () => import('@/components/goods/AddGood.vue'),
+                    name: 'AddGood'
+                },
+                {
+                    path: 'data',
+                    component: () => import('@/components/financial/DataCom.vue'),
+                    name: 'DataCom'
                 }
             ],
             redirect: '/home/order/0'
